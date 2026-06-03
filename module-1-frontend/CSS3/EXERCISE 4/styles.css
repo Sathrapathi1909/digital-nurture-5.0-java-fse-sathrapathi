@@ -1,0 +1,26 @@
+body {
+    background-color: #e9f3ff;
+    background-image: linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)), url('https://via.placeholder.com/1200x800?text=City+Park+Background');
+    background-size: cover;
+    background-position: center;
+    font-family: Arial, sans-serif;
+    color: #1f3a5a;
+    padding: 30px;
+}
+
+section h1 {
+    background: linear-gradient(90deg, #2d6ec2, #5c99e0);
+    color: white;
+    display: inline-block;
+    padding: 12px 18px;
+}
+
+section p {
+    margin: 16px 0;
+    max-width: 520px;
+}
+
+img {
+    max-width: 100%;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+}

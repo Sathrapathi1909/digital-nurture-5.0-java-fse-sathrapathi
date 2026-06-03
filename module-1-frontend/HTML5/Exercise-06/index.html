@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event Feedback</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .form-group {
+            margin-bottom: 12px;
+        }
+        label {
+            display: block;
+            margin-bottom: 4px;
+        }
+        input, select, textarea, button {
+            width: 100%;
+            max-width: 420px;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        #feeMessage, #charCount {
+            font-weight: bold;
+            margin-top: 6px;
+        }
+        #eventImage {
+            width: 200px;
+            cursor: pointer;
+            display: block;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Event Feedback</h1>
+    <form id="feedbackForm">
+        <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="text" id="phone" name="phone" placeholder="Enter 10 digit phone" onblur="validatePhone()">
+        </div>
+        <div id="phoneError" style="color: red; margin-bottom: 10px;"></div>
+        <div class="form-group">
+            <label for="eventSelect">Event</label>
+            <select id="eventSelect" name="eventSelect" onchange="updateFee()">
+                <option value="">Choose an event</option>
+                <option value="Music">Music Concert</option>
+                <option value="Workshop">Workshop</option>
+                <option value="Festival">Festival</option>
+            </select>
+        </div>
+        <div id="feeMessage"></div>
+        <div class="form-group">
+            <label for="feedback">Feedback</label>
+            <textarea id="feedback" name="feedback" rows="4" onkeyup="countCharacters()" placeholder="Share your experience"></textarea>
+        </div>
+        <div id="charCount">0 characters</div>
+        <button type="submit" onclick="showConfirmation()">Submit Feedback</button>
+    </form>
+    <img id="eventImage" src="https://via.placeholder.com/200x120?text=Event+Image" alt="Event image" ondblclick="enlargeImage()">
+    <script>
+        function validatePhone() {
+            const phone = document.getElementById('phone').value;
+            const error = document.getElementById('phoneError');
+            if (!/^\d{10}$/.test(phone)) {
+                error.textContent = 'Please enter a valid 10 digit phone number.';
+            } else {
+                error.textContent = '';
+            }
+        }
+
+        function updateFee() {
+            const eventType = document.getElementById('eventSelect').value;
+            const feeMessage = document.getElementById('feeMessage');
+            if (eventType === 'Music') {
+                feeMessage.textContent = 'Selected event fee: $50';
+            } else if (eventType === 'Workshop') {
+                feeMessage.textContent = 'Selected event fee: $30';
+            } else if (eventType === 'Festival') {
+                feeMessage.textContent = 'Selected event fee: $40';
+            } else {
+                feeMessage.textContent = '';
+            }
+        }
+
+        function showConfirmation() {
+            alert('Your feedback has been submitted. Thank you!');
+        }
+
+        function enlargeImage() {
+            const img = document.getElementById('eventImage');
+            img.style.width = '320px';
+        }
+
+        function countCharacters() {
+            const feedback = document.getElementById('feedback').value;
+            document.getElementById('charCount').textContent = feedback.length + ' characters';
+        }
+
+        document.getElementById('feedbackForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+        });
+    </script>
+</body>
+</html>

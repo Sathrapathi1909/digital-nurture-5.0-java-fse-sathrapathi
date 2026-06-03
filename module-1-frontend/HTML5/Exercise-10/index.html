@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Debugging Practice</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        button {
+            padding: 10px 14px;
+            font-size: 1rem;
+        }
+        #countDisplay {
+            font-size: 1.2rem;
+            margin-top: 12px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Debugging with Chrome DevTools</h1>
+    <button id="debugButton">Add One</button>
+    <div id="countDisplay">Count: 0</div>
+    <p>Open the browser console to view logs and use breakpoints in the script.</p>
+    <script>
+        let count = 0;
+
+        function updateCount() {
+            count += 1;
+            document.getElementById('countDisplay').textContent = 'Count: ' + count;
+            console.log('Current count value:', count);
+        }
+
+        document.getElementById('debugButton').addEventListener('click', updateCount);
+    </script>
+</body>
+</html>

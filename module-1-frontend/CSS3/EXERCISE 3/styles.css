@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h2 {
+    color: #2b5d8a;
+    margin: 20px 0 12px;
+}
+
+#mainHeader {
+    background: #dbe9ff;
+    padding: 18px;
+    text-align: center;
+}
+
+.eventCard {
+    border: 1px solid #aac4e6;
+    padding: 14px;
+    margin: 12px 0;
+    background: #f6f9ff;
+}
+
+h3, p {
+    margin: 8px 0;
+}
